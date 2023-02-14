@@ -22,8 +22,14 @@ namespace AppBuscaCep.Service
                 if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
+                    
+                    end = JsonConvert.DeserializeObject<Endereco>(json);
                 }
+                else
+                    throw new Exception(response.RequestMessage.Content.ToString());
             }
+
+            return end;
         }
     }
 }
