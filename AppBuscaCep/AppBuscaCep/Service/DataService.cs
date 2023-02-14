@@ -15,7 +15,7 @@ namespace AppBuscaCep.Service
         {
             Endereco end;
 
-            using (HttpClient cliente = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/endereco/by-cep?cep=" + cep);
 
