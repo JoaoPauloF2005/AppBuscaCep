@@ -8,6 +8,7 @@ using System.Text;
 
 namespace AppBuscaCep.Service
 {
+    
     public class DataService
     {
         public static async Task<Endereco> GetEnderecoByCep(string cep)
@@ -16,7 +17,7 @@ namespace AppBuscaCep.Service
 
             using (HttpClient cliente = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync("");
+                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/endereco/by-cep?cep=" + cep);
 
                 if (response.IsSuccessStatusCode)
                 {
