@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AppBuscaCep.Service
 {
-    
+
     public class DataService
     {
         public static async Task<Endereco> GetEnderecoByCep(string cep)
@@ -22,7 +22,7 @@ namespace AppBuscaCep.Service
                 if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
-                    
+
                     end = JsonConvert.DeserializeObject<Endereco>(json);
                 }
                 else
@@ -40,7 +40,7 @@ namespace AppBuscaCep.Service
             {
                 HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/bairro/by-cidade?id_cidade=" + id_cidade);
 
-                if(response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
                     string json = response.Content.ReadAsStringAsync().Result;
 
@@ -51,6 +51,31 @@ namespace AppBuscaCep.Service
             }
 
             return arr_bairros;
+        }
+
+        /**
+         * Obtem a Lista de Logradouros(rua) de um bairro
+         */
+        public static async Task<List<Logradouro>> GetLogradourosByBairroAndCidade(string bairro, int id_cidade) 
+        {
+           List<Logradouro> arr_logradouros = new List<Logradouro>();
+
+            using (HttpClient client = new HttpClient()) 
+            {
+
+                HttpResponseMessage response = await client.GetAsync("https://cep.metoda.com.br/logradouro/by-bairro?id_cidade=4874&bairro=" + id_cidade + "&bairro" + bairro);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = response.Content.ReadAsStringAsync().Result;
+
+                    arr_logradouros = JsonConvert.DeserializeObject<List<Logradouro>>(json);
+                }
+                else
+                    throw new Exception(response.RequestMessage.Content.ToString());
+            }
+
+            return arr_logradouros;
         }
     }
 }
