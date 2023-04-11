@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppBuscaCep.View.BuscaCepPorLogradouro">
+             x:Class="AppBuscaCep.View.BuscaCepPorLogradouro"
+             BackgroundColor="white">
     
     <ContentPage.Content>
         <StackLayout>
 
-            <StackLayout Orientation="Horizontal">
+            <Grid ColumnDefinitions="*, 100"
+                  RowDefinitions="50">
                 <SearchBar x:Name="txt_logradouro"
-                           Placeholder="Qual é sua rua?" />
-                <Button Text="Buscar" Clicked="Button_Clicked" />
-            </StackLayout>
+                           Placeholder="Qual é sua rua?" Grid.Row="0" Grid.Column="0"/>
+                <Button Text="Buscar" Clicked="Button_Clicked" Margin="5" Grid.Row="0" Grid.Column="1" />
+            </Grid>
 
             <ActivityIndicator x:Name="carregando" IsRunning="False" />
 
@@ -18,14 +20,22 @@
                 <ListView.Header>
                     <Grid ColumnDefinitions="Auto, *, *, Auto"
                           RowDefinitions="Auto">
-                        <Label Grid.Row="0" Grid.Column="0"
-                               Text="CEP" />
+                        <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" 
+                               Text="CEP" FontAttributes="Bold" FontSize="13" 
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="15" />
+
                         <Label Grid.Row="0" Grid.Column="1"
-                               Text="Logradouro" />
+                             HorizontalOptions="Center" 
+                               Text="Logradouro" FontAttributes="Bold" FontSize="13" 
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="15" />
                         <Label Grid.Row="0" Grid.Column="2"
-                               Text="Cidade" />
+                              HorizontalOptions="Center" 
+                               Text="Cidade" FontAttributes="Bold" FontSize="13" 
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="15" />
                         <Label Grid.Row="0" Grid.Column="3"
-                               Text="UF" />
+                              HorizontalOptions="Center" 
+                               Text="UF" FontAttributes="Bold" FontSize="13" 
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="15" />
                     </Grid>
                 </ListView.Header>
 

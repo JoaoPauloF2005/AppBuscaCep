@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppBuscaCep.Menu">
+             x:Class="AppBuscaCep.Menu"
+             BackgroundColor="white">
     <ContentPage.Content>
 
         <Grid ColumnDefinitions="*, *"
@@ -9,21 +10,30 @@
 
             <Label Grid.Row="0" Grid.Column="0"
                    Grid.ColumnSpan="2"
-                   Text="Api Busca Cep" />
+                   Text="API Busca Cep" FontSize="50" HorizontalTextAlignment="Center" TextColor="black"/>
+            
+            
 
             <Button Grid.Row="1" Grid.Column="0"
-                    Text="Buscar Cep" Clicked="Button_Clicked" />
+                    Text="Buscar Cep" Clicked="Button_Clicked" BorderRadius = "10"   
+                     TextColor="white" BackgroundColor="black"/>
 
             <Button Grid.Row="1" Grid.Column="1"
-                    Text="Buscar Cidades" />
+                    Text="Buscar Cidades" BorderRadius = "10"  
+                     TextColor="white" BackgroundColor="black"/>
 
             <Button Grid.Row="2" Grid.Column="0"
-                    Text="Buscar Ruas de Bairro"  />
+                    Text="Buscar Ruas de Bairro"  BorderRadius = "10"   
+                     TextColor="white" BackgroundColor="black"/>
 
             <Button Grid.Row="2" Grid.Column="1"
-                    Text="Buscar Bairro por Cidade" Clicked="Button_Clicked_1" />
+                    Text="Buscar Bairro por Cidade" Clicked="Button_Clicked_1" BorderRadius = "10"
+                    TextColor="white" BackgroundColor="black" />
 
-            
+            <Button Grid.Row="3" Grid.Column="0"
+                    Text="Buscar Cep por Logradouro" Clicked="Button_Clicked_2" BorderRadius = "10" 
+                     TextColor="white" BackgroundColor="black"/>
+
 
         </Grid>
         
